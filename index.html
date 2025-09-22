@@ -3,10 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Magical Garden Adventure</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Basic Page</h1>
-    <p>This is a paragraph of text on my basic HTML page.</p>
+    <!-- Sky background with clouds -->
+    <div class="sky">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <!-- Magic coordinates display -->
+    <div class="magic-tracker">
+        <span class="magic-text">✨ Magic Power: </span>
+        <span id="coordinates">0, 0</span>
+    </div>
+
+    <!-- Garden areas -->
+    <div class="garden-container">
+        <!-- Left garden patch -->
+        <div class="garden-patch left-patch" id="leftGarden">
+            <h2>🌸 Flower Patch 🌸</h2>
+            <p>Click anywhere to grow magical flowers!</p>
+        </div>
+
+        <!-- Right garden patch -->
+        <div class="garden-patch right-patch" id="rightGarden">
+            <h2>🦋 Butterfly Grove 🦋</h2>
+            <p>Move your mouse here to see butterflies dance!</p>
+        </div>
+    </div>
+
+    <!-- Container for dynamically created flowers -->
+    <div id="flowers-container"></div>
+
+    <!-- Container for butterflies -->
+    <div id="butterflies-container">
+        <div class="butterfly" id="butterfly1">🦋</div>
+        <div class="butterfly" id="butterfly2">🦋</div>
+        <div class="butterfly" id="butterfly3">🦋</div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        <h3>🌟 How to Play 🌟</h3>
+        <ul>
+            <li>Move your magic wand around to see the power!</li>
+            <li>Click anywhere to grow beautiful flowers!</li>
+            <li>Hover over the Butterfly Grove to make them dance!</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
