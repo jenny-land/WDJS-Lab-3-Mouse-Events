@@ -1,53 +1,269 @@
-/* Universal selector to target all elements */
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* Ensures padding and border are included in element's total width/height */
-}
-
-/* Reset default margin on all elements */
+/* Reset and base styles */
 * {
-  margin: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Optional: Further reset for specific elements */
 body {
-  line-height: 1.5; /* Sets a consistent default line height */
-  -webkit-font-smoothing: antialiased; /* Improves font rendering on macOS */
+    font-family:'Courier New', Courier, monospace, cursive, sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 70%, #228B22 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🪄</text></svg>'), auto;
+    position: relative;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block; /* Prevents extra space below inline images */
-  max-width: 100%; /* Ensures images don't overflow their containers */
+/* Sky and clouds */
+.sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit; /* Inherits font styles from parent elements */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.8;
+    animation: float 6s ease-in-out infinite;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word; /* Prevents text overflow in narrow containers */
+.cloud:before,
+.cloud:after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50px;
 }
 
-a {
-  text-decoration: none; /* Removes default underline from links */
-  color: inherit; /* Inherits color from parent, preventing default blue link color */
+.cloud1 {
+    width: 80px;
+    height: 40px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
 }
 
-ul, ol {
-  list-style: none; /* Removes default bullet points or numbers from lists */
-  padding: 0; /* Removes default padding on lists */
+.cloud1:before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud1:after {
+    width: 60px;
+    height: 40px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud2 {
+    width: 60px;
+    height: 30px;
+    top: 15%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.cloud2:before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud3 {
+    width: 100px;
+    height: 50px;
+    top: 25%;
+    left: 60%;
+    animation-delay: 4s;
+}
+
+.cloud3:before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Magic tracker */
+.magic-tracker {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 25px;
+    border: 3px solid #FFB6C1;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B4513;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.magic-text {
+    color: #a74476;
+}
+
+#coordinates {
+    color: #6986db;
+}
+
+/* Garden container */
+.garden-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 120px 20px 50px;
+    min-height: 60vh;
+}
+
+/* Garden patches */
+.garden-patch {
+    background: rgba(255, 255, 255, 0.8);
+    border: 4px solid #3b783b;
+    border-radius: 20px;
+    padding: 30px;
+    width: 40%;
+    min-height: 200px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.garden-patch:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.garden-patch h2 {
+    color: #228B22;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.garden-patch p {
+    color: #8B4513;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Flowers */
+.flower {
+    position: absolute;
+    font-size: 30px;
+    z-index: 100;
+    pointer-events: none;
+    animation: bloom 1s ease-out;
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* Butterflies */
+#butterflies-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.butterfly {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    animation: flutter 2s ease-in-out infinite;
+}
+
+@keyframes flutter {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(5deg); }
+    50% { transform: translateY(-5px) rotate(-5deg); }
+    75% { transform: translateY(-15px) rotate(3deg); }
+}
+
+.butterfly.active {
+    opacity: 1;
+    animation: flutter 1.5s ease-in-out infinite;
+}
+
+/* Instructions */
+.instructions {
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #FFD700;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.instructions h3 {
+    color: #FF6347;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.instructions li {
+    color: #8B4513;
+    font-size: 14px;
+    margin: 8px 0;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+/* Sparkle effect */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+    position: absolute;
+    color: #FFD700;
+    font-size: 16px;
+    pointer-events: none;
+    animation: sparkle 1s ease-out;
+    z-index: 200;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .garden-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .garden-patch {
+        width: 90%;
+        margin-bottom: 20px;
+    }
 }
