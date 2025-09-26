@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family:'Courier New', Courier, monospace, cursive, sans-serif;
-    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 70%, #228B22 100%);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 80%, #228B22 100%);
     min-height: 100vh;
     overflow-x: hidden;
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🪄</text></svg>'), auto;
@@ -114,11 +114,11 @@ body {
 }
 
 .magic-text {
-    color: #a74476;
+    color: #f71c89;
 }
 
 #coordinates {
-    color: #6986db;
+    color: #627ed0;
 }
 
 /* Garden container */
@@ -133,7 +133,7 @@ body {
 /* Garden patches */
 .garden-patch {
     background: rgba(255, 255, 255, 0.8);
-    border: 4px solid #3b783b;
+    border: 4px solid #32CD32;
     border-radius: 20px;
     padding: 30px;
     width: 40%;
@@ -141,12 +141,16 @@ body {
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    align-items: center;
+        transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    
 }
 
-.garden-patch:hover {
+/* .garden-patch:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .garden-patch h2 {
     color: #228B22;
@@ -227,17 +231,29 @@ body {
 }
 
 .instructions h3 {
-    color: #FF6347;
+    color: #fd6711;
     font-size: 20px;
     margin-bottom: 15px;
 }
 
+.instructions ul {
+    width: 70%;
+    margin: 0 auto;
+}
+
 .instructions li {
-    color: #8B4513;
+    color: #763b10;
     font-size: 14px;
     margin: 8px 0;
     padding: 5px;
+    padding-left: 7px;
     border-radius: 8px;
+    text-align: left;
+    margin-left: 18px;
+   
+
+   
+  list-style-type: "☆";
 }
 
 /* Sparkle effect */
@@ -248,7 +264,7 @@ body {
 
 .sparkle {
     position: absolute;
-    color: #FFD700;
+    color: #f0cc02;
     font-size: 16px;
     pointer-events: none;
     animation: sparkle 1s ease-out;
